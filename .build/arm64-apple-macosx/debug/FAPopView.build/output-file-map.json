@@ -1,0 +1,65 @@
+{
+  "": {
+    "swift-dependencies": "/private/tmp/FAPopView/.build/arm64-apple-macosx/debug/FAPopView.build/master.swiftdeps"
+  },
+  "/private/tmp/FAPopView/Sources/FAPopView/FAGlobalPopViewBackground.swift": {
+    "dependencies": "/private/tmp/FAPopView/.build/arm64-apple-macosx/debug/FAPopView.build/FAGlobalPopViewBackground.d",
+    "object": "/private/tmp/FAPopView/.build/arm64-apple-macosx/debug/FAPopView.build/FAGlobalPopViewBackground.swift.o",
+    "swiftmodule": "/private/tmp/FAPopView/.build/arm64-apple-macosx/debug/FAPopView.build/FAGlobalPopViewBackground~partial.swiftmodule",
+    "swift-dependencies": "/private/tmp/FAPopView/.build/arm64-apple-macosx/debug/FAPopView.build/FAGlobalPopViewBackground.swiftdeps"
+  },
+  "/private/tmp/FAPopView/Sources/FAPopView/FAPopView.swift": {
+    "dependencies": "/private/tmp/FAPopView/.build/arm64-apple-macosx/debug/FAPopView.build/FAPopView.d",
+    "object": "/private/tmp/FAPopView/.build/arm64-apple-macosx/debug/FAPopView.build/FAPopView.swift.o",
+    "swiftmodule": "/private/tmp/FAPopView/.build/arm64-apple-macosx/debug/FAPopView.build/FAPopView~partial.swiftmodule",
+    "swift-dependencies": "/private/tmp/FAPopView/.build/arm64-apple-macosx/debug/FAPopView.build/FAPopView.swiftdeps"
+  },
+  "/private/tmp/FAPopView/Sources/FAPopView/FAPopViewConfiguration.swift": {
+    "dependencies": "/private/tmp/FAPopView/.build/arm64-apple-macosx/debug/FAPopView.build/FAPopViewConfiguration.d",
+    "object": "/private/tmp/FAPopView/.build/arm64-apple-macosx/debug/FAPopView.build/FAPopViewConfiguration.swift.o",
+    "swiftmodule": "/private/tmp/FAPopView/.build/arm64-apple-macosx/debug/FAPopView.build/FAPopViewConfiguration~partial.swiftmodule",
+    "swift-dependencies": "/private/tmp/FAPopView/.build/arm64-apple-macosx/debug/FAPopView.build/FAPopViewConfiguration.swiftdeps"
+  },
+  "/private/tmp/FAPopView/Sources/FAPopView/FAPopViewEnvironment.swift": {
+    "dependencies": "/private/tmp/FAPopView/.build/arm64-apple-macosx/debug/FAPopView.build/FAPopViewEnvironment.d",
+    "object": "/private/tmp/FAPopView/.build/arm64-apple-macosx/debug/FAPopView.build/FAPopViewEnvironment.swift.o",
+    "swiftmodule": "/private/tmp/FAPopView/.build/arm64-apple-macosx/debug/FAPopView.build/FAPopViewEnvironment~partial.swiftmodule",
+    "swift-dependencies": "/private/tmp/FAPopView/.build/arm64-apple-macosx/debug/FAPopView.build/FAPopViewEnvironment.swiftdeps"
+  },
+  "/private/tmp/FAPopView/Sources/FAPopView/FAPopViewHelpers.swift": {
+    "dependencies": "/private/tmp/FAPopView/.build/arm64-apple-macosx/debug/FAPopView.build/FAPopViewHelpers.d",
+    "object": "/private/tmp/FAPopView/.build/arm64-apple-macosx/debug/FAPopView.build/FAPopViewHelpers.swift.o",
+    "swiftmodule": "/private/tmp/FAPopView/.build/arm64-apple-macosx/debug/FAPopView.build/FAPopViewHelpers~partial.swiftmodule",
+    "swift-dependencies": "/private/tmp/FAPopView/.build/arm64-apple-macosx/debug/FAPopView.build/FAPopViewHelpers.swiftdeps"
+  },
+  "/private/tmp/FAPopView/Sources/FAPopView/FAPopViewItemRow.swift": {
+    "dependencies": "/private/tmp/FAPopView/.build/arm64-apple-macosx/debug/FAPopView.build/FAPopViewItemRow.d",
+    "object": "/private/tmp/FAPopView/.build/arm64-apple-macosx/debug/FAPopView.build/FAPopViewItemRow.swift.o",
+    "swiftmodule": "/private/tmp/FAPopView/.build/arm64-apple-macosx/debug/FAPopView.build/FAPopViewItemRow~partial.swiftmodule",
+    "swift-dependencies": "/private/tmp/FAPopView/.build/arm64-apple-macosx/debug/FAPopView.build/FAPopViewItemRow.swiftdeps"
+  },
+  "/private/tmp/FAPopView/Sources/FAPopView/FAPopViewManager.swift": {
+    "dependencies": "/private/tmp/FAPopView/.build/arm64-apple-macosx/debug/FAPopView.build/FAPopViewManager.d",
+    "object": "/private/tmp/FAPopView/.build/arm64-apple-macosx/debug/FAPopView.build/FAPopViewManager.swift.o",
+    "swiftmodule": "/private/tmp/FAPopView/.build/arm64-apple-macosx/debug/FAPopView.build/FAPopViewManager~partial.swiftmodule",
+    "swift-dependencies": "/private/tmp/FAPopView/.build/arm64-apple-macosx/debug/FAPopView.build/FAPopViewManager.swiftdeps"
+  },
+  "/private/tmp/FAPopView/Sources/FAPopView/FAPopViewModifier.swift": {
+    "dependencies": "/private/tmp/FAPopView/.build/arm64-apple-macosx/debug/FAPopView.build/FAPopViewModifier.d",
+    "object": "/private/tmp/FAPopView/.build/arm64-apple-macosx/debug/FAPopView.build/FAPopViewModifier.swift.o",
+    "swiftmodule": "/private/tmp/FAPopView/.build/arm64-apple-macosx/debug/FAPopView.build/FAPopViewModifier~partial.swiftmodule",
+    "swift-dependencies": "/private/tmp/FAPopView/.build/arm64-apple-macosx/debug/FAPopView.build/FAPopViewModifier.swiftdeps"
+  },
+  "/private/tmp/FAPopView/Sources/FAPopView/FAPopViewShapes.swift": {
+    "dependencies": "/private/tmp/FAPopView/.build/arm64-apple-macosx/debug/FAPopView.build/FAPopViewShapes.d",
+    "object": "/private/tmp/FAPopView/.build/arm64-apple-macosx/debug/FAPopView.build/FAPopViewShapes.swift.o",
+    "swiftmodule": "/private/tmp/FAPopView/.build/arm64-apple-macosx/debug/FAPopView.build/FAPopViewShapes~partial.swiftmodule",
+    "swift-dependencies": "/private/tmp/FAPopView/.build/arm64-apple-macosx/debug/FAPopView.build/FAPopViewShapes.swiftdeps"
+  },
+  "/private/tmp/FAPopView/Sources/FAPopView/FAPopViewTypes.swift": {
+    "dependencies": "/private/tmp/FAPopView/.build/arm64-apple-macosx/debug/FAPopView.build/FAPopViewTypes.d",
+    "object": "/private/tmp/FAPopView/.build/arm64-apple-macosx/debug/FAPopView.build/FAPopViewTypes.swift.o",
+    "swiftmodule": "/private/tmp/FAPopView/.build/arm64-apple-macosx/debug/FAPopView.build/FAPopViewTypes~partial.swiftmodule",
+    "swift-dependencies": "/private/tmp/FAPopView/.build/arm64-apple-macosx/debug/FAPopView.build/FAPopViewTypes.swiftdeps"
+  }
+}

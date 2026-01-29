@@ -1,0 +1,11 @@
+{
+  "": {
+    "swift-dependencies": "/private/tmp/FAPopView/.build/arm64-apple-macosx/debug/FAPopViewPackageTests.build/master.swiftdeps"
+  },
+  "/private/tmp/FAPopView/.build/arm64-apple-macosx/debug/FAPopViewPackageTests.derived/runner.swift": {
+    "dependencies": "/private/tmp/FAPopView/.build/arm64-apple-macosx/debug/FAPopViewPackageTests.build/runner.d",
+    "object": "/private/tmp/FAPopView/.build/arm64-apple-macosx/debug/FAPopViewPackageTests.build/runner.swift.o",
+    "swiftmodule": "/private/tmp/FAPopView/.build/arm64-apple-macosx/debug/FAPopViewPackageTests.build/runner~partial.swiftmodule",
+    "swift-dependencies": "/private/tmp/FAPopView/.build/arm64-apple-macosx/debug/FAPopViewPackageTests.build/runner.swiftdeps"
+  }
+}

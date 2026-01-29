@@ -1,0 +1,4 @@
+module FAPopViewPackageTests {
+    header "/private/tmp/FAPopView/.build/arm64-apple-macosx/debug/FAPopViewPackageTests.build/FAPopViewPackageTests-Swift.h"
+    requires objc
+}
