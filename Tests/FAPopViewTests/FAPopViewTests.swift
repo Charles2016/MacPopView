@@ -43,4 +43,61 @@ final class FAPopViewTests: XCTestCase {
         XCTAssertFalse(PopViewDirection.left.isVertical)
         XCTAssertFalse(PopViewDirection.right.isVertical)
     }
+    
+    func testLayoutCalculatorBottomDirection() {
+        let calculator = FAPopViewLayoutCalculator(
+            buttonFrame: CGRect(x: 200, y: 100, width: 100, height: 40),
+            screenSize: CGSize(width: 800, height: 600),
+            config: .dark,
+            contentSize: CGSize(width: 250, height: 200)
+        )
+        let direction = calculator.bestDirection()
+        XCTAssertEqual(direction, .bottom)
+    }
+
+    func testLayoutCalculatorTopDirection() {
+        let calculator = FAPopViewLayoutCalculator(
+            buttonFrame: CGRect(x: 200, y: 500, width: 100, height: 40),
+            screenSize: CGSize(width: 800, height: 600),
+            config: .dark,
+            contentSize: CGSize(width: 250, height: 200)
+        )
+        let direction = calculator.bestDirection()
+        XCTAssertEqual(direction, .top)
+    }
+
+    func testLayoutCalculatorPositionArrowOffset() {
+        let calculator = FAPopViewLayoutCalculator(
+            buttonFrame: CGRect(x: 200, y: 100, width: 100, height: 40),
+            screenSize: CGSize(width: 800, height: 600),
+            config: .dark,
+            contentSize: CGSize(width: 250, height: 200)
+        )
+        let result = calculator.position(for: .bottom)
+        XCTAssertGreaterThan(result.arrowOffset, 0)
+        XCTAssertEqual(result.position.y, 140 + FAPopViewConfiguration.dark.arrowSpacing)
+    }
+
+    func testLayoutCalculatorPreferredDirection() {
+        let config = FAPopViewConfiguration.dark.direction(.left)
+        let calculator = FAPopViewLayoutCalculator(
+            buttonFrame: CGRect(x: 400, y: 300, width: 100, height: 40),
+            screenSize: CGSize(width: 800, height: 600),
+            config: config,
+            contentSize: CGSize(width: 250, height: 200)
+        )
+        XCTAssertEqual(calculator.bestDirection(), .left)
+    }
+
+    func testLayoutCalculatorEdgeCase() {
+        let calculator = FAPopViewLayoutCalculator(
+            buttonFrame: CGRect(x: 0, y: 0, width: 50, height: 30),
+            screenSize: CGSize(width: 800, height: 600),
+            config: .dark,
+            contentSize: CGSize(width: 250, height: 200)
+        )
+        let direction = calculator.bestDirection()
+        // Should pick bottom or right since button is at top-left corner
+        XCTAssertTrue(direction == .bottom || direction == .right)
+    }
 }

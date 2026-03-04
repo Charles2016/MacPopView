@@ -10,21 +10,22 @@ import SwiftUI
 // MARK: - PopView Manager
 
 /// Manages global popview state and coordinates between multiple popview instances
+@Observable
 @MainActor
-public final class FAPopViewManager: ObservableObject {
-    // MARK: - Published Properties
+public final class FAPopViewManager {
+    // MARK: - Properties
 
     /// Whether the background overlay is currently visible
-    @Published public var isShowingBackground = false
+    public var isShowingBackground = false
 
     /// The current popview content to display
-    @Published public var popViewContent: AnyView?
+    public var popViewContent: AnyView?
 
     /// The absolute position of the popview in global coordinates
-    @Published public var popViewOffset: CGPoint = .zero
+    public var popViewOffset: CGPoint = .zero
 
     /// The direction the popview arrow is pointing
-    @Published public var popViewDirection: PopViewDirection = .bottom
+    public var popViewDirection: PopViewDirection = .bottom
 
     // MARK: - Singleton
 

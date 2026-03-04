@@ -2,7 +2,7 @@
 
 A customizable SwiftUI popover component for macOS with precise arrow alignment.
 
-![macOS 13.0+](https://img.shields.io/badge/macOS-13.0%2B-blue)
+![macOS 14.0+](https://img.shields.io/badge/macOS-14.0%2B-blue)
 ![Swift 5.9+](https://img.shields.io/badge/Swift-5.9%2B-orange)
 ![License MIT](https://img.shields.io/badge/License-MIT-green)
 
@@ -181,7 +181,7 @@ PopViewItem(
 
 ## Requirements
 
-- macOS 13.0+
+- macOS 14.0+
 - Swift 5.9+
 - Xcode 15.0+
 

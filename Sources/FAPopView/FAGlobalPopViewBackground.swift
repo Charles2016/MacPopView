@@ -18,7 +18,7 @@ import SwiftUI
 ///
 /// This view is added automatically when using `.withPopViewSupport()`.
 struct FAGlobalPopViewBackground: View {
-    @ObservedObject var popViewManager = FAPopViewManager.shared
+    var popViewManager = FAPopViewManager.shared
 
     private enum Constants {
         static let backgroundZIndex: CGFloat = 50

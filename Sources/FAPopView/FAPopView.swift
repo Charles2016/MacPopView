@@ -48,7 +48,7 @@ public struct FAPopView<ButtonLabel: View, Content: View>: View {
     @State private var hoveringItemIndex: Int?
     @State private var measuredContentWidth: CGFloat?
     
-    @ObservedObject private var popViewManager = FAPopViewManager.shared
+    private var popViewManager = FAPopViewManager.shared
     @Environment(\.faPopViewContext) private var context
 
     // MARK: - Configuration
@@ -218,101 +218,27 @@ public struct FAPopView<ButtonLabel: View, Content: View>: View {
     // MARK: - Direction Calculation
 
     private func calculateBestDirection() -> PopViewDirection {
-        if let preferred = config.preferredDirection {
-            return preferred
-        }
-
-        let spaceAbove = buttonFrame.minY - FAPopViewLayout.screenMargin
-        let spaceBelow = screenSize.height - buttonFrame.maxY - FAPopViewLayout.screenMargin
-        let spaceLeft = buttonFrame.minX - FAPopViewLayout.screenMargin
-        let spaceRight = screenSize.width - buttonFrame.maxX - FAPopViewLayout.screenMargin
-
-        var viableDirections: [(direction: PopViewDirection, space: CGFloat)] = []
-
-        if canFitInDirection(.top) { viableDirections.append((.top, spaceAbove)) }
-        if canFitInDirection(.bottom) { viableDirections.append((.bottom, spaceBelow)) }
-        if canFitInDirection(.left) { viableDirections.append((.left, spaceLeft)) }
-        if canFitInDirection(.right) { viableDirections.append((.right, spaceRight)) }
-
-        if let best = viableDirections.max(by: { $0.space < $1.space }) {
-            return best.direction
-        }
-
-        let allSpaces: [(PopViewDirection, CGFloat)] = [
-            (.top, spaceAbove), (.bottom, spaceBelow),
-            (.left, spaceLeft), (.right, spaceRight)
-        ]
-        return allSpaces.max(by: { $0.1 < $1.1 })?.0 ?? .bottom
-    }
-
-    private func canFitInDirection(_ direction: PopViewDirection) -> Bool {
-        let effectiveWidth = measuredContentWidth ?? config.popViewWidth
-        
-        switch direction {
-        case .bottom:
-            let fitsV = buttonFrame.maxY + config.arrowHeight + config.arrowSpacing + popViewHeight + FAPopViewLayout.screenMargin <= screenSize.height
-            let fitsH = buttonFrame.midX - effectiveWidth / 2 >= FAPopViewLayout.screenMargin &&
-                        buttonFrame.midX + effectiveWidth / 2 <= screenSize.width - FAPopViewLayout.screenMargin
-            return fitsV && fitsH
-
-        case .top:
-            let fitsV = buttonFrame.minY - config.arrowHeight - config.arrowSpacing - popViewHeight >= FAPopViewLayout.screenMargin
-            let fitsH = buttonFrame.midX - effectiveWidth / 2 >= FAPopViewLayout.screenMargin &&
-                        buttonFrame.midX + effectiveWidth / 2 <= screenSize.width - FAPopViewLayout.screenMargin
-            return fitsV && fitsH
-
-        case .right:
-            let fitsH = buttonFrame.maxX + config.arrowHeight + config.arrowSpacing + effectiveWidth + FAPopViewLayout.screenMargin <= screenSize.width
-            let fitsV = buttonFrame.midY - popViewHeight / 2 >= FAPopViewLayout.screenMargin &&
-                        buttonFrame.midY + popViewHeight / 2 <= screenSize.height - FAPopViewLayout.screenMargin
-            return fitsH && fitsV
-
-        case .left:
-            let fitsH = buttonFrame.minX - config.arrowHeight - config.arrowSpacing - effectiveWidth >= FAPopViewLayout.screenMargin
-            let fitsV = buttonFrame.midY - popViewHeight / 2 >= FAPopViewLayout.screenMargin &&
-                        buttonFrame.midY + popViewHeight / 2 <= screenSize.height - FAPopViewLayout.screenMargin
-            return fitsH && fitsV
-        }
+        let calculator = FAPopViewLayoutCalculator(
+            buttonFrame: buttonFrame,
+            screenSize: screenSize,
+            config: config,
+            contentSize: CGSize(width: measuredContentWidth ?? config.popViewWidth, height: popViewHeight)
+        )
+        return calculator.bestDirection()
     }
 
     // MARK: - Position Calculation
 
     private func calculatePopViewGlobalPosition() -> CGPoint {
-        let effectiveWidth = measuredContentWidth ?? config.popViewWidth
-
-        switch popViewDirection {
-        case .bottom, .top:
-            let buttonCenterX = buttonFrame.midX
-            let idealContentX = buttonCenterX - effectiveWidth / 2
-            let actualContentX = max(FAPopViewLayout.screenPadding,
-                                     min(idealContentX, screenSize.width - effectiveWidth - FAPopViewLayout.screenPadding))
-
-            arrowOffset = buttonCenterX - actualContentX
-
-            if popViewDirection == .bottom {
-                return CGPoint(x: actualContentX, y: buttonFrame.maxY + config.arrowSpacing)
-            } else {
-                let totalHeight = popViewHeight + config.arrowHeight
-                let contentY = buttonFrame.minY - totalHeight - config.arrowSpacing
-                return CGPoint(x: actualContentX, y: max(FAPopViewLayout.screenPadding, contentY))
-            }
-
-        case .right, .left:
-            let buttonCenterY = buttonFrame.midY
-            let idealContentY = buttonCenterY - popViewHeight / 2
-            let actualContentY = max(FAPopViewLayout.screenPadding,
-                                     min(idealContentY, screenSize.height - popViewHeight - FAPopViewLayout.screenPadding))
-
-            arrowOffset = buttonCenterY - actualContentY
-
-            if popViewDirection == .right {
-                return CGPoint(x: buttonFrame.maxX + config.arrowSpacing, y: actualContentY)
-            } else {
-                let totalWidth = effectiveWidth + config.arrowHeight
-                let contentX = buttonFrame.minX - totalWidth - config.arrowSpacing
-                return CGPoint(x: max(FAPopViewLayout.screenPadding, contentX), y: actualContentY)
-            }
-        }
+        let calculator = FAPopViewLayoutCalculator(
+            buttonFrame: buttonFrame,
+            screenSize: screenSize,
+            config: config,
+            contentSize: CGSize(width: measuredContentWidth ?? config.popViewWidth, height: popViewHeight)
+        )
+        let result = calculator.position(for: popViewDirection)
+        arrowOffset = result.arrowOffset
+        return result.position
     }
 
     // MARK: - PopView Content
